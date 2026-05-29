@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Django Full Stack{% endblock %} | M6 L3</title>
+    <!-- Bootstrap 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    {% block estilos_extra %}{% endblock %}
+</head>
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    {% include "partials/navbar.html" %}
+
+    <!-- ===================== CONTENIDO PRINCIPAL ===================== -->
+    <main class="main-content">
+        <!-- Mensajes del sistema (Django messages framework) -->
+        {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block contenido %}
+        <!-- Las plantillas hijas definen este bloque -->
+        {% endblock %}
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    {% include "partials/footer.html" %}
+
+    <!-- Bootstrap 5 JS via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts_extra %}{% endblock %}
+</body>
+</html>

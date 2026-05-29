@@ -1,0 +1,99 @@
+/* =====================================================
+   ESTILOS PERSONALIZADOS - M6 L3 Django Full Stack
+   Complementa Bootstrap 5 con estilos propios
+   ===================================================== */
+
+/* Variables CSS */
+:root {
+    --color-primario: #198754;   /* Bootstrap success green */
+    --color-oscuro: #212529;     /* Bootstrap dark */
+    --color-claro: #f8f9fa;      /* Bootstrap light */
+    --transicion: 0.3s ease;
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== LAYOUT GENERAL ===== */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+}
+
+/* ===== PAGE HEADER (páginas internas) ===== */
+.page-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* ===== CARDS ===== */
+.card-hover {
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra) !important;
+}
+
+.icono-card {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+/* ===== MTV CARDS ===== */
+.mtv-card {
+    transition: transform var(--transicion);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.mtv-card:hover {
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== TECH BADGES ===== */
+.tech-badge {
+    transition: transform var(--transicion);
+}
+
+.tech-badge:hover {
+    transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    margin-top: auto;
+}
+
+/* ===== NAVBAR ACTIVE STATE ===== */
+.navbar-nav .nav-link:hover {
+    color: var(--color-primario) !important;
+}
+
+/* ===== CÓDIGO ===== */
+pre {
+    font-size: 0.8rem;
+    border-radius: 8px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 350px;
+    }
+    .display-4 {
+        font-size: 1.8rem;
+    }
+}

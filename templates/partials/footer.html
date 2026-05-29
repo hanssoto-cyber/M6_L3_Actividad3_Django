@@ -1,0 +1,48 @@
+<!-- Footer con Bootstrap 5 -->
+<footer class="footer bg-dark text-light mt-auto py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <h5 class="fw-bold text-success">
+                    <i class="bi bi-code-slash me-2"></i>Django Full Stack
+                </h5>
+                <p class="text-secondary small">
+                    Módulo 6 - Lección 3<br>
+                    Desarrollo de Aplicación Web con Django
+                </p>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <h6 class="fw-bold text-light">Navegación</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-secondary text-decoration-none small">
+                        <i class="bi bi-chevron-right"></i> Inicio
+                    </a></li>
+                    <li><a href="{% url 'sobre_django' %}" class="text-secondary text-decoration-none small">
+                        <i class="bi bi-chevron-right"></i> Sobre Django
+                    </a></li>
+                    <li><a href="{% url 'contacto' %}" class="text-secondary text-decoration-none small">
+                        <i class="bi bi-chevron-right"></i> Contacto
+                    </a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold text-light">Tecnologías</h6>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-success">Python</span>
+                    <span class="badge bg-success">Django</span>
+                    <span class="badge bg-primary">Bootstrap 5</span>
+                    <span class="badge bg-secondary">SQLite</span>
+                    <span class="badge bg-warning text-dark">MTV</span>
+                </div>
+            </div>
+        </div>
+        <hr class="border-secondary mt-3">
+        <div class="row">
+            <div class="col text-center">
+                <p class="text-secondary small mb-0">
+                    &copy; 2024 Actividad N°3 - M6 L3 | Desarrollo de Aplicación Web con Django
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

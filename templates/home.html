@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section text-white text-center py-5">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <span class="badge bg-success fs-6 mb-3 px-3 py-2">
+                    <i class="bi bi-mortarboard me-1"></i>Módulo 6 · Lección 3
+                </span>
+                <h1 class="display-4 fw-bold mb-3">{{ titulo }}</h1>
+                <p class="lead text-light mb-4">{{ subtitulo }}</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="{% url 'sobre_django' %}" class="btn btn-success btn-lg px-4">
+                        <i class="bi bi-book me-2"></i>Aprender más
+                    </a>
+                    <a href="{% url 'contacto' %}" class="btn btn-outline-light btn-lg px-4">
+                        <i class="bi bi-envelope me-2"></i>Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CARACTERÍSTICAS ===== -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">¿Por qué Django?</h2>
+            <p class="text-muted">Un framework robusto y elegante para desarrolladores perfeccionistas con deadlines.</p>
+        </div>
+        <div class="row g-4">
+            {% for item in caracteristicas %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center p-3 card-hover">
+                    <div class="card-body">
+                        <div class="icono-card mb-3">{{ item.icono }}</div>
+                        <h5 class="fw-bold card-title">{{ item.titulo }}</h5>
+                        <p class="card-text text-muted small">{{ item.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== STACK TECNOLÓGICO ===== -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Stack Tecnológico</h2>
+            <p class="text-muted">Tecnologías utilizadas en este proyecto</p>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            {% for tech in tecnologias %}
+            <span class="badge fs-5 px-4 py-2 bg-dark tech-badge">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>{{ tech }}
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== PATRÓN MTV ===== -->
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Patrón de Diseño <span class="text-success">MTV</span></h2>
+            <p class="text-secondary">Así funciona Django internamente</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="mtv-card text-center p-4 rounded border border-success">
+                    <div class="fs-1 mb-3">🗄️</div>
+                    <h4 class="fw-bold text-success">Model</h4>
+                    <p class="text-secondary small">Gestiona los datos y la interacción con la base de datos. Representa las tablas y relaciones.</p>
+                    <code class="text-success small">models.py</code>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mtv-card text-center p-4 rounded border border-primary">
+                    <div class="fs-1 mb-3">🎨</div>
+                    <h4 class="fw-bold text-primary">Template</h4>
+                    <p class="text-secondary small">Define la estructura visual (HTML) con herencia de plantillas, bloques y variables dinámicas.</p>
+                    <code class="text-primary small">templates/*.html</code>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mtv-card text-center p-4 rounded border border-warning">
+                    <div class="fs-1 mb-3">⚙️</div>
+                    <h4 class="fw-bold text-warning">View</h4>
+                    <p class="text-secondary small">Contiene la lógica de la aplicación, procesa las solicitudes y retorna una respuesta.</p>
+                    <code class="text-warning small">views.py</code>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p class="text-secondary small">
+                <i class="bi bi-arrow-right-circle-fill text-success me-2"></i>
+                Flujo: <strong class="text-white">Usuario → URL → View → Model → Template → Respuesta</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

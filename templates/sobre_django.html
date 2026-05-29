@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block titulo %}Sobre Django{% endblock %}
+
+{% block contenido %}
+
+<!-- Header de página -->
+<section class="page-header text-white text-center py-4">
+    <div class="container">
+        <h1 class="fw-bold"><i class="bi bi-book me-2"></i>{{ titulo }}</h1>
+        <p class="lead text-light">Conceptos del Módulo 6 - Lección 3</p>
+    </div>
+</section>
+
+<!-- MVC vs MTV comparison -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-4">MVC <span class="text-muted">vs</span> MTV en Django</h2>
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table table-hover table-bordered align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Clásico (MVC)</th>
+                        <th class="text-center">En Django (MTV)</th>
+                        <th class="text-center">Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><span class="badge bg-success fs-6">Model</span></td>
+                        <td class="text-center"><span class="badge bg-success fs-6">Model</span></td>
+                        <td>Representa los datos (base de datos)</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><span class="badge bg-primary fs-6">View</span></td>
+                        <td class="text-center"><span class="badge bg-primary fs-6">Template</span></td>
+                        <td>Presentación de la información (HTML)</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><span class="badge bg-warning text-dark fs-6">Controller</span></td>
+                        <td class="text-center"><span class="badge bg-warning text-dark fs-6">View</span></td>
+                        <td>Lógica de negocio y control del flujo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-muted small mt-2 text-center">
+            <i class="bi bi-info-circle me-1"></i>
+            En Django, el controlador está implícito en el framework (urls.py + vistas).
+        </p>
+    </div>
+</section>
+
+<!-- Temas del módulo -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-4">Temas del Módulo</h2>
+        <div class="row g-4">
+            {% for tema in temas %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm card-hover">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge bg-dark rounded-circle me-2">{{ forloop.counter }}</span>
+                            <h5 class="card-title mb-0 fw-bold">{{ tema.titulo }}</h5>
+                        </div>
+                        <p class="card-text text-muted small">{{ tema.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Herencia de Templates explicada -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-4">Herencia de Plantillas</h2>
+        <div class="row align-items-center g-4">
+            <div class="col-md-6">
+                <h5 class="fw-bold text-success">Template base (base.html)</h5>
+                <pre class="bg-dark text-light p-3 rounded small"><code>&lt;!-- base.html --&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &#123;% include "partials/navbar.html" %&#125;
+
+    &lt;main&gt;
+      &#123;% block contenido %&#125;
+      &#123;% endblock %&#125;
+    &lt;/main&gt;
+
+    &#123;% include "partials/footer.html" %&#125;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            <div class="col-md-6">
+                <h5 class="fw-bold text-primary">Template hijo (home.html)</h5>
+                <pre class="bg-dark text-light p-3 rounded small"><code>&lt;!-- home.html --&gt;
+&#123;% extends "base.html" %&#125;
+
+&#123;% block titulo %&#125;Inicio&#123;% endblock %&#125;
+
+&#123;% block contenido %&#125;
+  &lt;h1&gt;¡Bienvenido!&lt;/h1&gt;
+  &lt;p&gt;Contenido específico...&lt;/p&gt;
+&#123;% endblock %&#125;</code></pre>
+            </div>
+        </div>
+        <div class="alert alert-success mt-4">
+            <i class="bi bi-lightbulb-fill me-2"></i>
+            <strong>Principio DRY aplicado:</strong> El header, navbar y footer se definen una sola vez en <code>base.html</code> 
+            y todas las páginas los heredan automáticamente usando <code>&#123;% extends %&#125;</code>.
+        </div>
+    </div>
+</section>
+
+{% endblock %}
